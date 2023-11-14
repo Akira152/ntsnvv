@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+  </head>
+  <body>
+    <!-- Loading Page -->
+    <div id="js-loading" class="loading-wrapper">
+      <div class="shadow-wrapper">
+        <div class="shadow"></div>
+      </div>
+      <div class="dragon">
+        <div class="body"></div>
+        <div class="horn-left"></div>
+        <div class="horn-right"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="blush left"></div>
+        <div class="blush right"></div>
+        <div class="mouth"></div>
+        <div class="tail-sting"></div>
+      </div>
+      <div class="fire-wrapper">
+        <div class="fire"></div>
+      </div>
+      <div class="loading-process">
+        <span>Loading...</span>
+        <div class="outer">
+          <div class="inner"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Body -->
+    <div class="main" id="js-main">
+      <div class="content">
+        <dotlottie-player
+          id="lottieAnimation"
+          src="https://lottie.host/eeb923c3-ba52-4326-93ba-02f5bf88ccd0/I7pvAQx2pE.json"
+          background="transparent"
+          speed="1"
+          style="width: 1000px; height: 300px"
+          direction="1"
+          mode="bounce"
+          loop="false"
+        ></dotlottie-player>
+        <!-- Text -->
+        <div class="text-wrapper">
+          <h2 class="name">Ngọc Trâm</h2>
+          <h3 class="sub">Sinh nhật vui vẻ nha bạn trẻ!</h3>
+        </div>
+        <!-- Img -->
+        <div class="img-wrapper">
+          <div class="img-box">
+            <img class="img" id="pic1" src="./img/anh-1.jpg" alt="" />
+          </div>
+          <div class="img-box">
+            <img class="img" id="pic3" src="./img/anh-2.jpg" alt="" />
+          </div>
+        </div>
+        <!-- Animation BG -->
+        <div class="animation-bg">
+          <dotlottie-player
+            class="gift left"
+            src="https://lottie.host/2557a46d-da85-4ff6-918f-d33fd092284d/86wirPqW75.json"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px"
+            direction="1"
+            mode="normal"
+            loop
+            autoplay
+          ></dotlottie-player>
+          <dotlottie-player
+            class="gift right"
+            src="https://lottie.host/2557a46d-da85-4ff6-918f-d33fd092284d/86wirPqW75.json"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px"
+            direction="1"
+            mode="normal"
+            loop
+            autoplay
+          ></dotlottie-player>
+        </div>
+        <dotlottie-player
+          class="cake"
+          src="https://lottie.host/93a36d2f-3ac9-4aff-b2b9-0298bec87ee3/Sa6U09vl2S.json"
+          background="transparent"
+          speed="1"
+          style="width: 300px; height: 300px"
+          direction="1"
+          mode="normal"
+          loop
+          autoplay
+        ></dotlottie-player>
+      </div>
+      <embed src="./img/hp.mp3" autostart="true" loop="true" hidden="true" />
+    </div>
+
+    <script>
+      // Loading
+      const loadingElement = document.getElementById("js-loading");
+      const mainElement = document.getElementById("js-main");
+      // Sử dụng hàm setTimeout để ẩn phần tử sau 5 giây
+      setTimeout(function () {
+        loadingElement.style.display = "none";
+        mainElement.style.display = "block";
+        document.getElementById("lottieAnimation").play();
+      }, 4500);
+
+      // Animation
+    </script>
+  </body>
+</html>

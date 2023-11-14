@@ -1,0 +1,357 @@
+:root {
+    --white-clr: #fff;
+    --primary-clr: #ffcd33;
+}
+@keyframes zoomIn {
+    100% {
+        transform: scale(1.16, 1.16);
+    }
+}
+/* Xoay sừng phải 5deg */
+@keyframes swingRight {
+    100% {
+        transform: rotate(5deg);
+    }
+}
+/* Xoay sừng trái 5deg */
+@keyframes swingLeft {
+    100% {
+        transform: rotate(-5deg);
+    }
+}
+/* má hồng xuất hiện khi ở 100% */
+@keyframes blush {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* Hiệu ứng mở và đóng miệng */
+@keyframes openMouth {
+    0% {
+        clip-path: ellipse(20% 0% at 50% 0);
+    }
+    50% {
+        clip-path: ellipse(100% 100% at 50% 0);
+    }
+    70% {
+        clip-path: ellipse(100% 100% at 50% 0);
+    }
+    100% {
+        clip-path: ellipse(20% 0% at 50% 0);
+    }
+}
+/* Phóng phần vẫy đuôi */
+@keyframes tailUp {
+    0% {
+        transform: scaleY(0.9);
+    }
+    100% {
+        transform: scaleY(1.06);
+    }
+}
+@keyframes loading {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+/* Hiệu ứng ngọn lửa đi lên*/
+@keyframes fireUp {
+    0% {
+        top: 70px;
+    }
+    20% {
+        top: 70px;
+    }
+    100% {
+        top: -80px;
+    }
+}
+@keyframes fire {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.8;
+    }
+    20% {
+        transform: scale(0, 0);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1, 1);
+        opacity: 0;
+    }
+}
+/* Body */
+html {
+    height: 100%;
+}
+body {
+    font-family: Agbalumo, serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #fff6e3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Loading */
+.loading-wrapper {
+    position: relative;
+}
+.dragon {
+    width: 200px;
+    height: 140px;
+    transform-origin: 50% 80%;
+    animation: zoomIn .5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
+}
+.dragon .body {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 180px;
+    height: 128px;
+    background: url(./img/body.png) no-repeat center center;
+    background-size: contain;
+    z-index: 10;
+}
+.dragon .horn-left {
+    position: absolute;
+    top: -17px;
+    left: 32px;
+    width: 31px;
+    height: 31px;
+    background: url(./img/horn-left.png);
+    background-size: contain;
+    z-index: 9;
+    transform-origin: 150% 200%;
+    transform: rotate(-5deg);
+    animation: swingRight .5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
+}
+.dragon .horn-right {
+    position: absolute;
+    top: -16px;
+    left: 110px;
+    width: 34px;
+    height: 31px;
+    background: url(./img/horn-right.png);
+    background-size: contain;
+    z-index: 9;
+    transform-origin: -50% 200%;
+    transform: rotate(5deg);
+    animation: swingLeft .5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
+}
+
+.dragon .eye {
+    position: absolute;
+    top: 39px;
+    width: 11px;
+    height: 11px;
+    background: url(./img/eye.png) no-repeat;
+    background-size: contain;
+    z-index: 12;
+}
+
+.dragon .eye.left {
+    left: 49px;
+}
+.dragon .eye.right {
+    left: 118px;
+}
+
+.dragon .blush {
+    position: absolute;
+    top: 46px;
+    width: 15px;
+    height: 9px;
+    background: url(./img/blush.png);
+    background-size: 100% 100%;
+    z-index: 11;
+    animation: blush .5s ease infinite alternate;
+}
+.dragon .blush.left {
+    left: 43px;
+}
+.dragon .blush.right {
+    left: 120px;
+}
+
+.dragon .mouth {
+    position: absolute;
+    top: 52px;
+    left: 49px;
+    width: 78px;
+    height: 56px;
+    background: url(./img/mouth.png) no-repeat;
+    background-size: 100%;
+    z-index: 11;
+    animation: openMouth 1s ease infinite;
+}
+.dragon .tail-sting {
+    position: absolute;
+    top: 67px;
+    left: 139px;
+    width: 40px;
+    height: 38px;
+    background: url(./img/tail.png) no-repeat;
+    background-size: contain;
+    z-index: 9;
+    transform-origin: 0 100%;
+    animation: tailUp .5s cubic-bezier(0.47, 0, 0.75, 0.72) infinite alternate;
+}
+
+.fire-wrapper {
+    position: absolute;
+    top: 60px;
+    left: 88px;
+    width: 40px;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 100%;
+    animation: fireUp 1s ease-in infinite;
+}
+
+.fire-wrapper .fire {
+    padding-bottom: 135%;
+    width: 100%;
+    height: 100%;
+    background: url(./img/fire.png) no-repeat;
+    background-size: contain;
+    animation: fire 1s ease-out infinite;
+}
+.loading-process {
+    width: 100%;
+}
+.loading-process span {
+    font-weight: bold;
+    color: var(--primary-clr);
+    margin-left: 4px;
+}
+.loading-process .outer {
+    width: 100%;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-top: 3px;
+}
+.loading-process .outer .inner {
+    width: 0;
+    height: 100%;
+    background-color: var(--primary-clr);
+    animation: loading 4.5s linear;
+}
+/* Main */
+.main {
+    display: none;
+    height: 100%;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#lottieAnimation {
+    margin-bottom: -150px;
+}
+/* Img */
+.img-wrapper {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+.img-box {
+    margin: 0 20px;
+}
+
+.img-box .img {
+    width: 150px;
+    height: 200px;
+    padding: 10px;
+}
+
+.img-box .img#pic1 {
+    opacity: 0;
+    position: absolute;
+    left: 240px;
+    transform: rotate(-20deg);
+    animation: fade-in 1.5s ease forwards;
+    animation-delay: 6.4s;
+    z-index: 5;
+}
+.img-box .img#pic3 {
+    position: absolute;
+    right: 240px;
+    transform: rotate(20deg);
+    opacity: 0;
+    animation: fade-in 1.5s ease forwards;
+    animation-delay: 6.4s;
+    z-index:5;
+}
+/* Text */
+@keyframes fade-in{0%{opacity:0}100%{opacity:1}}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.text-wrapper {
+    position: relative;
+    text-align: center;
+}
+.text-wrapper .name {
+    position: relative;
+    font-size: 60px;
+    letter-spacing: 10px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+    animation-delay: 4.65s; /* Thêm độ trễ 0.5 giây giữa các ảnh */
+}
+.text-wrapper .sub {
+    font-family: Roboto, sans-serif;
+    letter-spacing: 1px;
+    font-size: 30px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+    animation-delay: 5.2s; /* Thêm độ trễ 0.5 giây giữa các ảnh */
+}
+
+/* Animation BG */
+.animation-bg {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    animation: fade-in .5s ease both;
+}
+
+.gift.right {
+    transform: rotateY(180deg);
+}
+
+.cake {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
+    animation-delay: 5.7s;
+    z-index: 6;
+}
